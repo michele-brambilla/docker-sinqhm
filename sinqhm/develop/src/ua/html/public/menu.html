@@ -1,0 +1,36 @@
+
+<h1>SINQHM on Linux-RTAI Index Page</h1>
+<p>
+This is the WWW-server of a histogram memory computer. If you do not
+ know what all this is about or you are not authorized or
+ qualified to handle this: <b>KEEP AWAY!</b>
+ If you are still here, you can try the following things: 
+<ul>
+<li>Show the Histogram Memory <a href="/admin/showconfig.egi">Configuration</a>
+<li><a href="/admin/maketestdata.egi">Generate</a> test data. The histogram 
+memory bins will be enumerated. 
+<li><a href="/admin/readdata.html">Download</a> histogram memory data
+<li><a href="/admin/status.egi">Show Status and Counters in HTML</a>
+<li><a href="/admin/textstatus.egi">Show Status and Counters in Plain Text</a>
+<li><a href="/admin/daqstatus.egi">Show current DAQ Status in Plain Text</a>
+<li><a href="/admin/startdaq.egi">Start</a> Data Aquisition
+<li><a href="/admin/stopdaq.egi">Stop</a> Data Aquisition
+<li><a href="/admin/debugbuffer.egi">Show</a> Debug Buffer
+<li><a href="/admin/fs/tmp/appweb_error.log">AppWeb Error Log</a>
+<li><a href="/admin/fs/tmp/appweb_access.log">AppWeb Access Log</a>
+<li><a href="/admin/fs">Browse Filesystem</a>
+</ul>
+</p>
+<p>
+Histogram memory configuration happens through XML-files. Suitable XML files 
+can be uploaded to this server through the command:
+<pre>
+wget -S --post-file=your-wonderful-new-configuration.xml http://this.host/admin/configure.egi 
+</pre> 
+wget stores the servers answer to your configuration file into a file called
+configure.egi. Look there for success or error messages.
+wget should be available on any properly installed unix system. In the sad 
+case that you have to use windows:  try cygwin. 
+</p>
+
+

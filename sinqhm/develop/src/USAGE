@@ -1,0 +1,5 @@
+1) start the filler:
+   rt/filler_main zmq_socket=tcp://127.0.0.1:5556
+
+2) start the egi (from ./ua folder)
+   cd ua; ./sinqhmegi

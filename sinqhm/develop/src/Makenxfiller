@@ -1,0 +1,22 @@
+#-------------------------------------------------------
+# Makefile for nxfiller
+#
+# Mark Koennecke, April 2013
+#-------------------------------------------------------
+
+NEXUS=/afs/psi.ch/project/sinq/sl6
+
+OBJ=nxfiller.o datashm.o controlshm.o
+
+.c.o:
+	$(CC) -c -g -DFILLER_USER -I$(NEXUS)/include $*.c
+
+all: nxfiller
+
+nxfiller: $(OBJ)
+	  $(CC) -g -o nxfiller $(OBJ) -L$(NEXUS)/lib -lNeXus -lhdf5 -lmxml -lsz -lz
+
+clean:
+	- rm *.o
+	- rm nxfiller
+ 
