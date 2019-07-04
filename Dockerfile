@@ -53,4 +53,4 @@ COPY run.sh run.sh
 
 EXPOSE 8080
 
-ENTRYPOINT ["/run.sh"]
+RUN ["/run.sh"]
