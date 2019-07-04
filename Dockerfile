@@ -54,4 +54,4 @@ COPY amor2015n001774.hdf sinqhm/amor2015n001774.hdf
 
 EXPOSE 8080
 
-RUN ["/run.sh"]
+CMD ["/run.sh"]
