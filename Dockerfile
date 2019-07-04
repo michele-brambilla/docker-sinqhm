@@ -50,6 +50,7 @@ COPY --from=hm_builder /lib64/libpgm-5.2.so.0.0.122 /lib64/libpgm-5.2.so.0.0.122
 RUN rm sinqhm/ua/*.o
 
 COPY run.sh run.sh
+COPY amor2015n001774.hdf sinqhm/amor2015n001774.hdf
 
 EXPOSE 8080
 
