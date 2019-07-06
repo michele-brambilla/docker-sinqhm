@@ -31,7 +31,7 @@ FROM centos:7
 RUN yum -y install epel-release && \
     yum -y install glibc mongo-c-driver-libs &&\
     yum -y remove epel-release && yum clean all && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/yum && touch /tmp/lwlfifo
 
 COPY --from=hm_builder sinqhm/develop/src/rt/sinqhm_filler sinqhm/rt/sinqhm_filler
 COPY --from=hm_builder sinqhm/develop/src/ua/ sinqhm/ua/
