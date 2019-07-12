@@ -24,8 +24,6 @@ RUN yum install -y epel-release && \
     git clone --single-branch --branch use_hdf5 https://github.com/michele-brambilla/neventGenerator.git &&\
     cd neventGenerator && make
 
-
-
 FROM centos:7
 
 RUN yum -y install epel-release && \
@@ -42,7 +40,7 @@ COPY --from=hm_builder /lib64/libmxml.so.1 /lib64/libmxml.so.1
 COPY --from=hm_builder /lib64/libmxml.so.1.6 /lib64/libmxml.so.1.6
 RUN rm sinqhm/ua/*.o
 
-COPY run.sh run.sh
+COPY launch.sh launch.sh
 
 
 COPY --from=gen_builder /lib64/libzmq.so /lib64/
@@ -65,8 +63,8 @@ COPY --from=gen_builder neventGenerator/zmqGenerator neventGenerator/zmqGenerato
 COPY --from=gen_builder neventGenerator/zmqReader neventGenerator/zmqReader
 COPY --from=gen_builder neventGenerator/rita22012n006190.hdf neventGenerator/rita22012n006190.hdf
 
-
 EXPOSE 8080
+ENV HM_HOST=${HM_HOST:-localhost}
+ENV ZMQ_HM_PORT=${ZMQ_HM_PORT:-5777}
 
-ENTRYPOINT ["/run.sh"]
-CMD ["5777"]
+CMD ["/launch.sh"]
